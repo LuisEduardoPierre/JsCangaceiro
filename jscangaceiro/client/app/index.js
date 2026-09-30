@@ -4,12 +4,12 @@ let fields = [
     document.querySelector('#quantidade')
 ];
 
-let tableBody = document.querySelector('table tbody')
+let tableBody = document.querySelector('table tbody');
 
 document.querySelector('.form').addEventListener('submit', function(event){
-    debugger
-    event.preventDefault()
-    let tableRow = document.createElement('tr')
+
+    event.preventDefault();
+    let tableRow = document.createElement('tr');
 
     fields.forEach(function(field) {
         let tableData = document.createElement('td');
@@ -17,10 +17,16 @@ document.querySelector('.form').addEventListener('submit', function(event){
         tableData.textContent = field.value;
         tableRow.appendChild(tableData);
     })
-
+    debugger    
     let tableDataVolume = document.createElement('td');
-    tableDataVolume.textContent = fields[1].value * fields.value;
-    tableRow.appendChild(tableDataVolume)
+    tableDataVolume.textContent = fields[1].value * fields[2].value;
+    console.log(tableDataVolume);
+    tableRow.appendChild(tableDataVolume);
 
-    tableBody.appendChild(tableRow)
+    tableBody.appendChild(tableRow);
+
+    fields[0].value = '';
+    fields[1].value = 1;
+    fields[2].value = 0;
+    fields[0].focus();
 });
