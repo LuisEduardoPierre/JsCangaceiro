@@ -1,9 +1,11 @@
 class Negotiation {
 
-    constructor (data,quantidade,valor) {
-        this._data = data;
-        this._quantidade = quantidade;
-        this._valor = valor;
+    //Realizando a atribuicao via Object.assign()
+    //Dessa forma preservamos o encapsulamento das variaveis na funcao
+    constructor (_data,_quantidade,_valor) {
+        Object.assign(this, {_quantidade, _valor})
+        this._data = new Date(this._data.getTime());
+        Object.freeze(this)//Faz com que o objeto fique "Privado"
     }
 
     getVolume(){
